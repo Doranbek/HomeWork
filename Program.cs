@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 
@@ -23,14 +24,18 @@ namespace HomeWorkN8
 
             static void Start()
             {
-                Console.WriteLine("Hello, the BodyTemperature program welcomes you!To start, press any key.");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\t\tHello, the BODYTEMPERATURE program welcomes you!\n" +
+                    "\tIf you enter values below 30 and above 41, the program will warn you.\n " +
+                    "\t\t\tDo not be ill! Wear a mask!\n\t\t\tTo start, press any key.");
+                Console.ResetColor();
                 Console.ReadKey();
                 Console.Clear();
             }
 
             static void BodyTemperatur()
             {
-                List<decimal> tempStat = new List<decimal>();
+                List<decimal> temStatInput = new List<decimal>();
                 int numDay = 1;
 
                 while (true)
@@ -38,18 +43,33 @@ namespace HomeWorkN8
                     Console.Write($"Enter for  view statistics or set body temperature for {numDay}th day\n>");
                     var input = ((Console.ReadLine()));
                     if (input == "") break;
-                    else if ((decimal.Parse(input) < 41) && (decimal.Parse(input) > 30))
+                    else if ((decimal.Parse(input) <= 41) && (decimal.Parse(input) >= 30))
                     {
-                        tempStat.Add(decimal.Parse(input));
+                        temStatInput.Add(decimal.Parse(input));
                         numDay++;
                     }
-                    else Console.WriteLine("Body temperature incorrect");
+                    else 
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                        Console.WriteLine("Body temperature incorrect");
+                        Console.ResetColor();
+                    }
+                    
                 }
+                
                 Console.Clear();
-                numDay = 1;
+
+                Output(temStatInput);
+                
+                
+                
+            }
+            static void Output(List<decimal> tempStat) 
+            {
+                int numDay = 1;
                 foreach (var i in tempStat)
                 {
-                    Console.WriteLine($"On {numDay}th day your body temperature was {i:0.0} °C");
+                    Console.WriteLine($"\nOn {numDay}th day your body temperature was {i:0.0} °C");
                     numDay++;
                 }
 
@@ -57,7 +77,7 @@ namespace HomeWorkN8
                 decimal max = tempStat.Max();
                 decimal avr = tempStat.Average();
 
-                Console.WriteLine($"Your statistics daily body temperature Min:{min:0.0} Max:{max:0.0} Average{avr:0.0}");
+                Console.WriteLine($"\nYour statistics daily body temperature Min:{min:0.0} Max:{max:0.0} Average{avr:0.0}");
 
                 decimal normsize = (from i in tempStat where i <= (decimal)37.5 select i).Count();
                 Console.WriteLine($"You had a low body temperature {normsize} days");
@@ -68,7 +88,6 @@ namespace HomeWorkN8
                 decimal veryMaxsize = (from i in tempStat where i >= (decimal)38.3 select i).Count();
                 Console.WriteLine($"You had a very high body temperature {veryMaxsize} days");
             }
-            
                         
             static bool End()
             {
