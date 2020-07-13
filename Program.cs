@@ -40,19 +40,30 @@ namespace HomeWorkN8
             decimal min = tempStat.Min();
             decimal max = tempStat.Max();
             decimal avr = tempStat.Average();
+            
+            Console.WriteLine($"Your statistics daily body temperature Min:{min:0.0} Max:{max:0.0} Average{avr:0.0}");
+            //foreach (var dayCount in tempStat)
+            //{
+            //    NewMethod(tempStat, dayCount);
+            //}
 
-            Console.WriteLine($"Your statistics daily body temperature Min:{min} Max:{max} Average{avr}");
+          
+            decimal normsize = (from i in tempStat where i <= (decimal)37.5 select i).Count();
+            Console.WriteLine($"You had a low body temperature {normsize} days");
 
-
-            decimal minsize = (from i in tempStat where 36 > i select i).Count();
-            Console.WriteLine($"You had a low body temperature {minsize} days");
-
-            decimal maxsize = (from i in tempStat where 37 < i select i).Count();
+            decimal maxsize = (from i in tempStat where i >= (decimal)37.5 && i <= (decimal)38.3 select i).Count();
             Console.WriteLine($"You had a high body temperature {maxsize} days");
+
+            decimal veryMaxsize = (from i in tempStat where i >= (decimal)38.3 select i).Count();
+            Console.WriteLine($"You had a very high body temperature {veryMaxsize} days");
+
 
             Console.ReadKey();
         }
 
-
+        //private static void NewMethod(List<decimal> tempStat, decimal dayCount)
+        //{
+        //    dayCount.Where(dayCount => dayCount == tempStat.Min).Count();
+        //}
     }
 }
