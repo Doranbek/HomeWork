@@ -1,0 +1,13 @@
+D:\C#\GitHub\HomeWork\obj\Debug\netcoreapp3.1\HomeWorkN8.csprojAssemblyReference.cache
+D:\C#\GitHub\HomeWork\obj\Debug\netcoreapp3.1\HomeWorkN8.AssemblyInfoInputs.cache
+D:\C#\GitHub\HomeWork\obj\Debug\netcoreapp3.1\HomeWorkN8.AssemblyInfo.cs
+D:\C#\GitHub\HomeWork\obj\Debug\netcoreapp3.1\HomeWorkN8.csproj.CoreCompileInputs.cache
+D:\C#\GitHub\HomeWork\bin\Debug\netcoreapp3.1\HomeWorkN8.exe
+D:\C#\GitHub\HomeWork\bin\Debug\netcoreapp3.1\HomeWorkN8.deps.json
+D:\C#\GitHub\HomeWork\bin\Debug\netcoreapp3.1\HomeWorkN8.runtimeconfig.json
+D:\C#\GitHub\HomeWork\bin\Debug\netcoreapp3.1\HomeWorkN8.runtimeconfig.dev.json
+D:\C#\GitHub\HomeWork\bin\Debug\netcoreapp3.1\HomeWorkN8.dll
+D:\C#\GitHub\HomeWork\bin\Debug\netcoreapp3.1\HomeWorkN8.pdb
+D:\C#\GitHub\HomeWork\obj\Debug\netcoreapp3.1\HomeWorkN8.dll
+D:\C#\GitHub\HomeWork\obj\Debug\netcoreapp3.1\HomeWorkN8.pdb
+D:\C#\GitHub\HomeWork\obj\Debug\netcoreapp3.1\HomeWorkN8.genruntimeconfig.cache

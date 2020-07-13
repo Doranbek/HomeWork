@@ -12,15 +12,13 @@ namespace HomeWorkN8
         static void Main(string[] args)
         {
 
-            string exit;
+            bool boolMes;
             do
             {
                 Start();
-                InputBodyTemperatur();
-                Console.WriteLine("Your statistics daily body temperature");
-                OutputBodyTemperatur();
-                End();
-            } while (true);
+                BodyTemperatur();
+                boolMes = End();
+            } while (boolMes == false);
             
 
             static void Start()
@@ -30,7 +28,7 @@ namespace HomeWorkN8
                 Console.Clear();
             }
 
-            static void InputBodyTemperatur()
+            static void BodyTemperatur()
             {
                 List<decimal> tempStat = new List<decimal>();
                 int numDay = 1;
@@ -48,11 +46,6 @@ namespace HomeWorkN8
                     else Console.WriteLine("Body temperature incorrect");
                 }
                 Console.Clear();
-            
-            }
-            
-            static void OutputBodyTemperatur()
-            {
                 numDay = 1;
                 foreach (var i in tempStat)
                 {
@@ -63,9 +56,9 @@ namespace HomeWorkN8
                 decimal min = tempStat.Min();
                 decimal max = tempStat.Max();
                 decimal avr = tempStat.Average();
-            
+
                 Console.WriteLine($"Your statistics daily body temperature Min:{min:0.0} Max:{max:0.0} Average{avr:0.0}");
-                      
+
                 decimal normsize = (from i in tempStat where i <= (decimal)37.5 select i).Count();
                 Console.WriteLine($"You had a low body temperature {normsize} days");
 
@@ -76,16 +69,17 @@ namespace HomeWorkN8
                 Console.WriteLine($"You had a very high body temperature {veryMaxsize} days");
             }
             
-            static string End()
+                        
+            static bool End()
             {
                 Console.WriteLine("\nTo continue press any key \nTo exit the program press \"Q\"");
-                bool boolend=ToUpper(Console.ReadLine())=="Q";                
-                return boolend;
+                string exit =Console.ReadLine().ToUpper();
+                bool message = exit == "Q";                         
+                return message;
             }
 
-            Console.ReadKey();
+            
         }
 
-        
     }
 }
