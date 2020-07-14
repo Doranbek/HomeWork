@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
+
 
 namespace HomeWorkN8
 
@@ -59,10 +58,7 @@ namespace HomeWorkN8
                 
                 Console.Clear();
 
-                Output(temStatInput);
-                
-                
-                
+                Output(temStatInput);               
             }
             static void Output(List<decimal> tempStat) 
             {
@@ -96,8 +92,7 @@ namespace HomeWorkN8
                 bool message = exit == "Q";                         
                 return message;
             }
-
-            
+                        
         }
 
     }
